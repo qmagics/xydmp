@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no, viewport-fit=cover" />
+  <title>鑫亚</title>
+  <script src="/ZcCitySDK/zccity-min.js"></script>
+  <script src="/Helpers/CesiumNavigation.umd.js"></script>
+  <script src="/ZcCitySDK/GifImageProperty.js"></script>
+  <script src="/leaflet/leaflet.js"></script>
+  <script src="/Helpers/tool.js"></script>
+  <script src="/Helpers/libgif.js"></script>
+  <script src="/Helpers/skyBoxOnGround.js"></script>
+  <script src="/Helpers/dispatchPreviewTools.js"></script>
+  <link rel="stylesheet" href="/ZcCitySDK/cesium/Widgets/widgets.css" />
+  <link rel="stylesheet" href="/leaflet/leaflet.css" />
+</head>
+
+<body>
+  <div id="app" class="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+          // app.$store.commit('set_HtmlFontSize', Number(100 * (clientWidth / 1920)));
+        };
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+
+  </script>
+</body>
+
+</html>

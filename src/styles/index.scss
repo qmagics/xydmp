@@ -1,0 +1,416 @@
+@import "./reset.scss";
+@import "./icon.scss";
+@import "./transition.scss";
+
+.app {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-size: 0.14rem;
+    background-color: rgb(8, 17, 51);
+    overflow: hidden;
+}
+
+.app-header,
+.app-footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.app-header {
+    top: 0;
+    height: $headerHeight;
+}
+
+.app-body {
+    width: 100%;
+    height: 100%;
+}
+
+.app-footer {
+    bottom: 0;
+    height: $footerHeight;
+    // background: rgba(230, 192, 255, 0.3);
+}
+
+// text-color
+.color-primary {
+    color: $colorPrimary;
+}
+.color-info {
+    color: $colorInfo;
+}
+.color-success {
+    color: $colorSuccess;
+}
+.color-danger,
+.color-error {
+    color: $colorDanger;
+}
+.color-warning {
+    color: $colorWarning;
+}
+.color-young {
+    color: $colorYoung;
+}
+.color-yellow {
+    color: $colorYellow;
+}
+.color-orange {
+    color: $colorOrange;
+}
+
+// text
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+
+// icon-shadow
+.icon-shadow-yellow {
+    text-shadow: 0 0 0.06rem rgb(255, 224, 47), 0 0 0.12rem rgb(255, 224, 47);
+}
+.icon-shadow-green {
+    text-shadow: 0 0 0.06rem rgb(40, 250, 131), 0 0 0.12rem rgb(51, 255, 140);
+}
+.icon-shadow-young {
+    text-shadow: 0 0 0.1rem rgb(15, 225, 240), 0 0 0.2rem rgb(15, 225, 240);
+}
+.icon-shadow-blue {
+    text-shadow: 0 0 0.1rem rgb(13, 107, 238), 0 0 0.2rem rgb(13, 107, 238);
+}
+
+// table--theme-dark
+.table--theme-dark {
+    --el-table-background-color: transparent;
+    --el-table-header-background-color: transparent;
+    --el-table-tr-background-color: transparent;
+
+    --el-table-font-color: rgb(189, 194, 205);
+    --el-table-header-font-color: rgb(228, 229, 233);
+
+    --el-table-border: none;
+    --el-table-border-color: transparent;
+
+    --el-table-row-hover-background-color: rgba(35, 53, 89, 1);
+
+    // --el-table-border-color: var(--el-border-color-lighter);
+    // --el-table-border: .01rem solid var(--el-table-border-color);
+    // --el-table-font-color: var(--el-text-color-regular);
+    // --el-table-header-font-color: var(--el-text-color-secondary);
+    // --el-table-row-hover-background-color: var(--el-background-color-base);
+    // --el-table-current-row-background-color: var(--el-color-primary-light-9);
+    // --el-table-header-background-color: var(--el-color-white);
+    // --el-table-fixed-box-shadow: 0 0 .1rem rgba(0, 0, 0, 0.12);
+    // --el-table-background-color: var(--el-color-white);
+    // --el-table-tr-background-color: var(--el-color-white);
+    // --el-table-expanded-cell-background-color: var(--el-color-white);
+
+    &.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+        background-color: rgb(39, 69, 112);
+    }
+
+    &.el-table--border {
+        --el-table-border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 0.08rem;
+
+        // 外部边框
+        --el-table-border-color: rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .el-table__body tr.current-row > td.el-table__cell {
+        background-color: rgba(58, 119, 199, 0.459) !important;
+    }
+}
+
+// table--linear-borde
+.table--linear-border {
+    .el-table__header-wrapper {
+        position: relative;
+        @include linearBorder(bottom, 100%, 0.02rem);
+
+        .el-table__cell {
+            @include linearBorder(right, 50%, 0.02rem, 0.3);
+        }
+    }
+
+    .el-table__body {
+        .el-table__row {
+            position: relative;
+            @include linearBorder(bottom, 100%, 0.02rem, 0.3);
+        }
+    }
+}
+
+// 取消行移入背景色
+.table--no-hover-bg {
+    &.el-table--enable-row-hover .el-table__body tr:hover > td.el-table__cell {
+        background-color: transparent;
+    }
+}
+
+// select--theme-dark
+.select--theme-dark {
+    // --el-input-font-color: var(--el-text-color-regular);
+    // --el-input-border: var(--el-border-base);
+    // --el-input-border-color: var(--el-border-color-base);
+    // --el-input-border-radius: var(--el-border-radius-base);
+    // --el-input-background-color: var(--el-color-white);
+    // --el-input-icon-color: var(--el-text-color-placeholder);
+    // --el-input-placeholder-color: var(--el-text-color-placeholder);
+    // --el-input-hover-border: var(--el-border-color-hover);
+    // --el-input-clear-hover-color: var(--el-text-color-secondary);
+    // --el-input-focus-border: var(--el-color-primary);
+
+    .el-input {
+        --el-input-background-color: rgba(9, 23, 33, 0.7);
+        --el-input-font-color: #fff;
+
+        &__inner {
+            border-color: rgb(129, 129, 129);
+            border-width: 0.02rem;
+        }
+    }
+}
+
+// date-picker--theme-dark
+.date-picker--theme-dark {
+    // --el-input-font-color: var(--el-text-color-regular);
+    // --el-input-border: var(--el-border-base);
+    // --el-input-border-color: var(--el-border-color-base);
+    // --el-input-border-radius: var(--el-border-radius-base);
+    // --el-input-background-color: var(--el-color-white);
+    // --el-input-icon-color: var(--el-text-color-placeholder);
+    // --el-input-placeholder-color: var(--el-text-color-placeholder);
+    // --el-input-hover-border: var(--el-border-color-hover);
+    // --el-input-clear-hover-color: var(--el-text-color-secondary);
+    // --el-input-focus-border: var(--el-color-primary);
+
+    .el-input {
+        &__inner {
+            --el-input-font-color: #fff;
+            --el-input-background-color: rgba(9, 23, 33, 0.7);
+            --el-input-border: rgb(129, 129, 129) solid 0.01rem;
+        }
+    }
+}
+.date-picker--hide-prefix {
+    .el-input__prefix {
+        display: none;
+    }
+    .el-input__inner {
+        padding: 0 0.15rem !important;
+        text-align: center;
+    }
+}
+
+.el-input {
+    // 超小
+    &.el-input--minii {
+        $height: 0.22rem;
+        font-size: 0.12rem;
+        line-height: $height;
+        .el-input__inner {
+            height: $height;
+            line-height: $height;
+            padding-right: 0.22rem;
+        }
+
+        .el-input__icon {
+            line-height: $height;
+            width: 0.14rem;
+            color: rgb(69, 153, 255);
+        }
+    }
+
+    .suffix-icon {
+        font-size: 0.18rem;
+        line-height: 0.32rem;
+        width: 0.28rem;
+        color: rgb(69, 153, 255);
+        cursor: pointer;
+        &:hover {
+            color: rgb(29, 131, 255);
+        }
+    }
+}
+
+// el-input--theme-dark
+.input--theme-dark {
+    // --el-input-font-color: var(--el-text-color-regular);
+    // --el-input-border: var(--el-border-base);
+    // --el-input-border-color: var(--el-border-color-base);
+    // --el-input-border-radius: var(--el-border-radius-base);
+    // --el-input-background-color: var(--el-color-white);
+    // --el-input-icon-color: var(--el-text-color-placeholder);
+    // --el-input-placeholder-color: var(--el-text-color-placeholder);
+    // --el-input-hover-border: var(--el-border-color-hover);
+    // --el-input-clear-hover-color: var(--el-text-color-secondary);
+    // --el-input-focus-border: var(--el-color-primary);
+
+    --el-input-background-color: rgba(9, 23, 33, 0.7);
+    --el-input-font-color: #fff;
+    .el-input__inner,
+    .el-textarea__inner {
+        border-color: rgb(101, 104, 112);
+        border-width: 0.02rem;
+        background-color: transparent;
+    }
+
+    .el-input-number__decrease,
+    .el-input-number__increase {
+        background-color: $colorPrimary;
+        border: none;
+    }
+}
+
+.el-radio__inner {
+    background-color: transparent;
+    border-color: rgb(101, 104, 112);
+    border-width: 0.02rem;
+}
+
+.el-button--primary {
+    --el-button-font-color: #ffffff;
+    --el-button-background-color: rgb(58, 120, 199);
+    --el-button-border-color: rgb(58, 120, 199);
+    --el-button-hover-color: rgb(67, 126, 202);
+    --el-button-active-font-color: #e6e6e6;
+    --el-button-active-background-color: rgb(58, 120, 199);
+    --el-button-active-border-color: rgb(58, 120, 199);
+
+    &.is-disabled,
+    &.is-disabled:active,
+    &.is-disabled:focus,
+    &.is-disabled:hover {
+        background-color: rgb(41, 64, 94);
+        border-color: rgb(41, 64, 94);
+        color: #ddd;
+    }
+}
+
+// .el-tree
+.tree--theme-dark {
+    --el-tree-node-hover-background-color: transparent;
+
+    background: transparent;
+    color: rgb(177, 177, 177);
+
+    .el-tree-node__content {
+        position: relative;
+        .el-tree-node__label {
+            z-index: 1;
+        }
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: scale(0);
+            transform-origin: center;
+            background-image: radial-gradient(rgb(0, 119, 255) 0%, rgba(0, 137, 253, 0) 70%);
+            transition: all 0.2s ease;
+            opacity: 0;
+        }
+        &:hover {
+            &:before {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            .el-tree-node__label {
+                color: rgb(197, 197, 197);
+            }
+        }
+    }
+
+    .el-tree-node {
+        &.is-current {
+            & > .el-tree-node__content {
+                background-color: transparent;
+                &:before {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+                .el-tree-node__label {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+// .el-radio-button
+.radio-theme--dark {
+    .el-radio-button {
+        // --el-radio-button-checked-background-color: var(--el-color-primary);
+        // --el-radio-button-checked-font-color: var(--el-color-white);
+        // --el-radio-button-checked-border-color: var(--el-color-primary);
+        // --el-radio-button-disabled-checked-fill: var(--el-border-color-extra-light);
+
+        .el-radio-button__inner {
+            $bg: rgb(31, 33, 37);
+            background-color: $bg;
+            border-color: $bg;
+            border-width: 0.03rem;
+            color: rgb(140, 154, 163);
+            box-shadow: none;
+            font-weight: bold;
+        }
+
+        &.is-active {
+            .el-radio-button__inner {
+                background-color: rgb(55, 107, 169);
+                color: #fff;
+            }
+        }
+    }
+}
+
+.pagination--theme-dark {
+    --el-pagination-background-color: rgb(77, 81, 90);
+    --el-pagination-font-color: #fff;
+    --el-pagination-hover-color: #fff;
+    --el-pagination-button-disabled-background-color: rgb(69, 71, 73);
+    --el-pagination-button-color: #fff;
+
+    .el-pager li.active {
+        background-color: $colorPrimary;
+    }
+}
+
+.el-message {
+    border-color: transparent;
+
+    &__content {
+        color: #fff !important;
+    }
+    &__icon {
+        color: #fff !important;
+        font-size: 0.16rem;
+    }
+    &--info {
+        background-color: rgb(32, 61, 100);
+    }
+    &--warning {
+        background-color: rgb(173, 85, 13);
+    }
+    &--success {
+        background-color: rgb(32, 100, 58);
+    }
+    &--error {
+        background-color: rgb(146, 15, 15);
+    }
+}

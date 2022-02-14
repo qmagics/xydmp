@@ -1,0 +1,256 @@
+$gutter: 0.2rem;
+$header_height: 0.4rem;
+$footer_height: 0.5rem;
+
+.fx-modals {
+    .fx-modal.el-dialog {
+        margin: 0;
+        position: absolute;
+
+        &.theme--dark {
+            // background: rgba(22, 39, 64, 0.9) !important;
+            background: transparent !important;
+            .el-dialog__header,
+            .el-dialog__footer {
+                display: none !important;
+            }
+            .el-dialog__body {
+                height: 100% !important;
+                background: transparent !important;
+                .fx-modal__body {
+                    background: transparent !important;
+                }
+            }
+        }
+    }
+}
+.fx-modal.el-dialog {
+    max-height: 100%;
+    max-width: 100%;
+
+    // &.placement--center {
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    // }
+
+    &.is--no-padding {
+        .el-dialog__body {
+            padding: 0;
+        }
+    }
+
+    &.is--has-bg {
+        .el-dialog__body {
+            background-color: rgb(231, 235, 237);
+        }
+    }
+
+    &.is--has-footer {
+        .el-dialog__body {
+            height: calc(100% - #{$header_height} - #{$footer_height});
+        }
+    }
+
+    .el-dialog__header {
+        overflow: hidden;
+        height: $header_height;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eee;
+        padding: 0 0.6rem 0 0;
+        line-height: $header_height;
+        // background-image: linear-gradient(to bottom, $colorPrimary, $colorPrimaryActive);
+        // background: $bgColorPrimary;
+        .el-dialog__title {
+            color: #fff;
+            font-size: 0.17rem;
+            max-width: 40%;
+            min-width: 2rem;
+            display: inline-block;
+            overflow: hidden;
+            height: $header_height;
+            line-height: $header_height;
+            position: relative;
+            padding-left: 0.2rem;
+            padding-right: 0.3rem;
+
+            .title-inner {
+                position: relative;
+                z-index: 1;
+                max-width: 100%;
+                padding-right: 0.3rem;
+                display: inline-block;
+                overflow: hidden;
+                height: $header_height;
+                line-height: $header_height;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                right: 0.24rem;
+                top: 0;
+                left: -0.24rem;
+                height: 100%;
+                background-image: linear-gradient(to bottom, #3a86cc, #0f60a8);
+                transform: skew(-50deg, 0);
+            }
+        }
+        .el-dialog__headerbtn {
+            font-weight: bold;
+            z-index: 2;
+            opacity: 0.9;
+            i {
+                font-size: 0.2rem;
+                color: #000;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .el-dialog__body {
+        height: calc(100% - #{$header_height} - #{$footer_height});
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding: $gutter;
+        padding: 0.2rem;
+        background: #fff;
+        .fx-modal__body {
+            height: 100%;
+        }
+    }
+
+    .el-dialog__footer {
+        height: $footer_height;
+        box-sizing: border-box;
+        padding: 0 0.2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: rgb(245, 247, 250);
+    }
+
+    .file-uploader {
+        padding: $gutter;
+    }
+}
+
+// yw-dialog
+.el-dialog.yw-dialog {
+    max-height: 100%;
+    max-width: 100%;
+
+    &.is--no-padding {
+        .el-dialog__body {
+            padding: 0;
+        }
+    }
+
+    &.is--has-bg {
+        .el-dialog__body {
+            background-color: rgb(231, 235, 237);
+        }
+    }
+
+    &.is--has-footer {
+        .el-dialog__body {
+            height: calc(100% - #{$header_height} - #{$footer_height});
+        }
+    }
+
+    .el-dialog__header {
+        overflow: hidden;
+        height: $header_height;
+        box-sizing: border-box;
+        border-bottom: 1px solid #eee;
+        padding: 0 0.6rem 0 0;
+        line-height: $header_height;
+        // background-image: linear-gradient(to bottom, $colorPrimary, $colorPrimaryActive);
+        // background: $bgColorPrimary;
+        .el-dialog__title {
+            color: #fff;
+            font-size: 0.17rem;
+            max-width: 40%;
+            min-width: 2rem;
+            display: inline-block;
+            overflow: hidden;
+            height: $header_height;
+            line-height: $header_height;
+            position: relative;
+            padding-left: 0.2rem;
+            padding-right: 0.3rem;
+            // background-image: linear-gradient(to bottom, $colorPrimary, $colorPrimaryActive);
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &:after {
+                content: "";
+                position: absolute;
+                height: 0;
+                width: 0;
+                right: 0;
+                top: 0;
+                // border-bottom: $header_height solid $bgColorPrimary;
+                border-left: $header_height solid transparent;
+            }
+        }
+        .el-dialog__headerbtn {
+            font-weight: bold;
+            z-index: 2;
+            opacity: 0.9;
+            i {
+                font-size: 0.2rem;
+                color: #fff;
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    .el-dialog__body {
+        height: calc(100% - #{$header_height});
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding: 0.2rem;
+        background: #fff;
+        .fx-modal__body {
+            height: 100%;
+        }
+    }
+
+    .el-dialog__footer {
+        height: $footer_height;
+        box-sizing: border-box;
+        padding: 0 0.2rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        background-color: rgb(245, 247, 250);
+    }
+
+    .file-uploader {
+        padding: $gutter;
+    }
+}
+
+.el-dialog.theme--dark {
+    box-shadow: none;
+}
+
+// blur-dialog
+.el-dialog.blur-dialog {
+    background: transparent;
+    box-shadow: none;
+
+    .el-dialog__header {
+        display: none;
+    }
+
+    .el-dialog__body {
+        padding: 0;
+        color: #fff;
+    }
+}

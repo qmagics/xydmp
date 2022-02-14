@@ -1,0 +1,231 @@
+.map-3d {
+    width: 100%;
+    height: 100%;
+    .map-main {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.is--hide-3d .cesium-widget canvas {
+        display: none;
+    }
+
+    .distance-legend {
+        pointer-events: auto;
+        position: absolute;
+        border-radius: 15px;
+        padding-left: 5px;
+        padding-right: 5px;
+        right: 0;
+        top: 380px;
+        height: 30px;
+        width: 125px;
+        box-sizing: content-box;
+    }
+    .distance-legend-label {
+        display: inline-block;
+        font-family: "Roboto", sans-serif;
+        font-size: 14px;
+        font-weight: lighter;
+        line-height: 20px;
+        color: #ffffff;
+        width: 125px;
+        text-align: center;
+    }
+    .distance-legend-scale-bar {
+        border-left: 2px solid #ffffff;
+        border-right: 2px solid #ffffff;
+        border-bottom: 2px solid #ffffff;
+        position: absolute;
+        height: 10px;
+        top: 15px;
+    }
+
+    .navigation-controls {
+        position: absolute;
+        right: 0.53rem;
+        top: 250px;
+        width: 30px;
+        // border: 1px solid rgba(255, 255, 255, 0.1);
+        font-weight: 300;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: rgb(9, 23, 33, 0.4);
+        // background-color: red;
+        border-radius: 15px;
+    }
+    .navigation-control {
+        cursor: pointer;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .naviagation-control:active {
+        color: #fff;
+    }
+    .navigation-control-last {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 0;
+        height: 0.36rem;
+    }
+    .navigation-control-icon-zoom-in {
+        position: relative;
+        text-align: center;
+        font-size: 20px;
+        color: #ffffff;
+        padding-bottom: 4px;
+    }
+    .navigation-control-icon-zoom-out {
+        position: relative;
+        text-align: center;
+        font-size: 20px;
+        color: #ffffff;
+    }
+    .navigation-control-icon-reset .cesium-svgPath-svg {
+        fill: #fff;
+        font-size: 0.14rem;
+        position: unset !important;
+        // transform: scale(.8);
+        // box-sizing: content-box;
+    }
+
+    .compass {
+        pointer-events: auto;
+        position: absolute;
+        right: 0.2rem;
+        top: 150px;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+    }
+    .compass-outer-ring {
+        position: absolute;
+        top: 0;
+        width: 95px;
+        height: 95px;
+        fill: rgba(255, 255, 255, 0.5);
+    }
+    .compass-outer-ring-background {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        width: 44px;
+        height: 44px;
+        border-radius: 44px;
+        border: 12px solid rgba(47, 53, 60, 0.8);
+        box-sizing: content-box;
+    }
+    .compass-gyro {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: 95px;
+        height: 95px;
+        fill: #ccc;
+    }
+    .compass-gyro-active {
+        fill: #68adfe;
+    }
+    .compass-gyro-background {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        width: 33px;
+        height: 33px;
+        border-radius: 33px;
+        background-color: rgba(47, 53, 60, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-sizing: content-box;
+    }
+    .compass-gyro-background:hover + .compass-gyro {
+        fill: #68adfe;
+    }
+    .compass-rotation-marker {
+        position: absolute;
+        top: 0;
+        width: 95px;
+        height: 95px;
+        fill: #68adfe;
+    }
+    @media screen and (max-width: 700px), screen and (max-height: 420px) {
+        .navigation-controls {
+            display: none;
+        }
+        .compass {
+            display: none;
+        }
+    }
+    @media print {
+        .navigation-controls {
+            display: none;
+        }
+        .compass {
+            display: none;
+        }
+    }
+}
+
+.cesium-widget-cesiumNavigationContainer {
+    // // display: none;
+    // .distanceLegendDiv {
+    // }
+    // .navigationDiv {
+    //     .compass {
+    //     }
+
+    //     .navigation-controls {
+    //         font-size: 0.16rem;
+    //         .navigation-control {
+    //         }
+    //         .navigation-control-last {
+    //         }
+
+    //         .navigation-control-icon-zoom-in {
+    //         }
+    //         .navigation-control-icon-zoom-out {
+    //         }
+    //         .navigation-control-icon-reset {
+    //         }
+    //     }
+    // }
+}
+
+.small-map {
+    position: fixed;
+    top: 0.2rem;
+    right: 0.3rem;
+    z-index: 1;
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 50%;
+    border: 0.03rem solid rgb(161, 164, 165);
+    box-shadow: 0 0 0.05rem 0.1rem rgba(0, 0, 0, 0.3);
+    padding: 0.03rem;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 100%;
+        z-index: 401;
+        background-image: radial-gradient(transparent 0%, transparent 58%, rgba(0, 0, 0, 1) 100%),
+            radial-gradient(transparent 0%, transparent 58%, rgba(0, 0, 0, 1) 100%),
+            radial-gradient(transparent 0%, transparent 58%, rgba(0, 0, 0, 1) 100%);
+    }
+}

@@ -1,0 +1,20 @@
+//iconfont 在线图标
+// @import "http://at.alicdn.com/t/font_2903226_rew174ku66c.css";
+@import "./iconfont/iconfont.css";
+
+[class^="yw-icon-"],
+[class*=" yw-icon-"] {
+    font-size: unset;
+    font-family: "ywfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    speak: none;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+}

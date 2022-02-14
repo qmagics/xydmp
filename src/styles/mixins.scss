@@ -1,0 +1,131 @@
+﻿@mixin text-clamp($count: unset) {
+    display: -webkit-box;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $count;
+}
+
+// 生成渐变边框
+@mixin linearBorder($direction: right, $size: 100%, $bold: 0.01rem, $brightness: 0.7, $offset: 0) {
+    &:after {
+        content: "";
+        position: absolute;
+
+        @if $direction == "right" {
+            height: $size;
+            width: $bold;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, $brightness) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            right: $offset;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @if $direction == "bottom" {
+            width: $size;
+            height: $bold;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, $brightness) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            bottom: $offset;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &:last-child {
+        &::after {
+            display: none;
+        }
+    }
+}
+
+// 生成线性边框
+@mixin lineBorder(
+    $direction: right,
+    $size: 100%,
+    $color: rgb(104, 104, 104),
+    $bold: 0.01rem,
+    $brightness: 0.7,
+    $offset: 0
+) {
+    &:after {
+        content: "";
+        position: absolute;
+
+        @if $direction == "right" {
+            height: $size;
+            width: $bold;
+            background: $color;
+            right: $offset;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @if $direction == "bottom" {
+            width: $size;
+            height: $bold;
+            background: $color;
+            bottom: $offset;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+
+    &:last-child {
+        &::after {
+            display: none;
+        }
+    }
+}
+
+// // 生成L形角边框
+// @mixin lBorder($size: .1rem, $color:rgb(92,204,255)) {
+//     &:after {
+//         content: "";
+//         position: absolute;
+
+//         @if $direction == "right" {
+//             height: $size;
+//             width: $bold;
+//             background: linear-gradient(
+//                 to bottom,
+//                 rgba(255, 255, 255, 0) 0%,
+//                 rgba(255, 255, 255, $brightness) 50%,
+//                 rgba(255, 255, 255, 0) 100%
+//             );
+//             right: $offset;
+//             top: 50%;
+//             transform: translateY(-50%);
+//         }
+
+//         @if $direction == "bottom" {
+//             width: $size;
+//             height: $bold;
+//             background: linear-gradient(
+//                 to right,
+//                 rgba(255, 255, 255, 0) 0%,
+//                 rgba(255, 255, 255, $brightness) 50%,
+//                 rgba(255, 255, 255, 0) 100%
+//             );
+//             bottom: $offset;
+//             left: 50%;
+//             transform: translateX(-50%);
+//         }
+//     }
+
+//     &:last-child {
+//         &::after {
+//             display: none;
+//         }
+//     }
+// }
